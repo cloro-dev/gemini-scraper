@@ -48,14 +48,13 @@ with open('response.json', 'w') as file:
 curl -X POST https://api.cloro.dev/v1/monitor/gemini \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d
-    "{
+  -d '{
     "prompt": "Explain the concept of quantum entanglement",
     "country": "US",
     "include": {
       "markdown": true
     }
-  }"
+  }'
 ```
 
 ### Request sample (Node.js)
@@ -88,12 +87,13 @@ axios
 
 ### Request parameters
 
-| Parameter          | Description                                                                | Default value |
-| ------------------ | -------------------------------------------------------------------------- | ------------- |
-| `prompt`\*         | The prompt or question to send to Gemini (1-10,000 characters)             | –             |
-| `country`          | Optional country/region code for localized results (e.g., `US`, `JP`)      | `US`          |
-| `include.markdown` | Include response in Markdown format when set to true                       | `false`       |
-| `include.html`     | Include URL to full HTML response when set to true (URL expires after 48h) | `false`       |
+| Parameter             | Description                                                                | Default value |
+| --------------------- | -------------------------------------------------------------------------- | ------------- |
+| `prompt`\*            | The prompt or question to send to Gemini (1-10,000 characters)             | –             |
+| `country`             | Optional country/region code for localized results (e.g., `US`, `JP`)      | `US`          |
+| `include.markdown`    | Include response in Markdown format when set to true                       | `false`       |
+| `include.html`        | Include URL to full HTML response when set to true (URL expires after 24h) | `false`       |
+| `include.rawResponse` | Include raw streaming response events for debugging                        | `false`       |
 
 - Mandatory parameters
   \*\* Gemini is currently not available in European countries (EEA/EU).
@@ -120,7 +120,7 @@ The Gemini Scraper API returns a structured JSON object containing Gemini's AI-g
         "confidence_level": 95
       }
     ],
-    "html": "https://storage.cloro.dev/results/c45a5081-808d-4ed3-9c86-e4baf16c8ab8/page-1.html", // URL expires after 48 hours
+    "html": "https://storage.cloro.dev/results/c45a5081-808d-4ed3-9c86-e4baf16c8ab8/page-1.html", // URL expires after 24 hours
     "markdown": "**Quantum entanglement** is a physical phenomenon..."
   }
 }
@@ -171,7 +171,7 @@ cloro's Gemini endpoint provides reliable access to Google's Gemini AI with:
 
 ### What's the recommended timeout for requests?
 
-We recommend setting a timeout of 30-60 seconds. Our system handles automatic retries, but implementing your own retry logic provides the best reliability.
+We don't recommend putting any timeout, given that our system retries automatically. We recommend setting up a retry mechanism in case of failure.
 
 ### Does the API support different countries?
 
@@ -185,7 +185,7 @@ Gemini excels at reasoning, coding, creative writing, and complex analytical tas
 
 For detailed documentation, advanced features, and integration guides, visit:
 
-- **API documentation:** [docs.cloro.dev](https://docs.cloro.dev)
+- **API documentation:** [docs.cloro.dev](https://docs.cloro.dev/)
 - **Gemini scraper page:** [cloro.dev/gemini](https://cloro.dev/gemini/)
 
 ## Other available scrapers
@@ -194,12 +194,15 @@ For detailed documentation, advanced features, and integration guides, visit:
 - **[AI Overview](https://cloro.dev/ai-overview/)** - Extracts structured data from Google AI Overview for comprehensive search result analysis and AI-curated insights.
 - **[ChatGPT](https://cloro.dev/chatgpt/)** - Extracts structured data from ChatGPT with advanced features including shopping cards, raw response data, and query fan-out.
 - **[Copilot](https://cloro.dev/copilot/)** - Extracts structured data from Microsoft Copilot for development tools, Microsoft ecosystem research, and enterprise-focused queries.
-- **[Google](https://cloro.dev/google-search/)** - Extracts structured data from Google Search results, including organic results, People Also Ask questions, related searches, and optional AI Overview data.
+- **[Gemini](https://cloro.dev/gemini/)** - Extracts structured data from Google Gemini for complex reasoning, content generation, and source confidence scoring.
+- **[Google Search](https://cloro.dev/google-search/)** - Extracts structured data from Google Search results, including organic results, People Also Ask questions, related searches, and optional AI Overview data.
+- **[Google News](https://cloro.dev/google-news/)** - Extracts structured news articles from Google News with titles, snippets, sources, dates, and thumbnail images for news monitoring and media tracking.
+- **[Grok](https://cloro.dev/grok/)** - Extracts structured data from Grok for current events, news tracking, and real-time information gathering.
 - **[Perplexity](https://cloro.dev/perplexity/)** - Extracts comprehensive structured data from Perplexity AI with real-time web sources, automatically detecting and extracting rich data objects.
 
 ## Contact us
 
-If you have questions or need support, reach out to us on [our contact page](https://cloro.dev/contact).
+If you have questions or need support, reach out to us at [support@cloro.dev](mailto:support@cloro.dev).
 
 ---
 

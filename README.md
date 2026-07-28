@@ -1,12 +1,28 @@
-# Google Gemini Scraper
+# Gemini Scraper API — Grounded Google AI Responses, Sources & Citations
 
 [![Google Gemini scraper by cloro](https://github.com/cloro-dev/gemini-scraper/blob/main/gemini-scraper-hero-image.png)](https://cloro.dev/gemini/?utm_source=github)
 
 [![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The [Google Gemini Scraper](https://cloro.dev/gemini/) by cloro lets developers programmatically interact with Google's Gemini AI and collect AI-generated responses with structured metadata. You can retrieve results as parsed JSON, raw HTML, or other formats for integration into your workflows.
+Scrape Google Gemini responses via API. Returns parsed JSON with full text and markdown, **grounded sources with confidence scores**, **citation pills**, and Gemini's internal reasoning steps. Python, cURL, and Node.js examples below.
 
-You can use cloro's Gemini Scraper for reasoning tasks, content generation, and general knowledge queries. It handles dynamic AI-generated content, supports real-time extraction, and removes the need to manage authentication, sessions, or anti-bot systems.
+Built for developers doing AI brand monitoring on Gemini, source-attribution research, competitive intelligence across Google's AI stack, and content generation at scale — without managing CAPTCHAs, rotating proxies, session state, or Google's anti-bot defenses.
+
+## Quick start
+
+1. Get an API key at [cloro.dev](https://cloro.dev/?utm_source=github&utm_medium=readme).
+2. Send a request:
+
+   ```bash
+   curl -X POST https://api.cloro.dev/v1/monitor/gemini \
+     -H "Authorization: Bearer YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"prompt": "What are the top climate risks for coastal real estate?"}'
+   ```
+
+3. Parse the returned JSON — `result.text`, `result.markdown`, `result.citationPills[]`, `result.sources[]`.
+
+Full examples in Python, cURL, and Node.js below.
 
 ## How it works
 
@@ -214,7 +230,7 @@ For detailed documentation, advanced features, and integration guides, visit:
 
 ## Contact us
 
-If you have questions or need support, reach out to us at [support@cloro.dev](mailto:support@cloro.dev).
+If you have questions or need support, join our community at [r/cloroapi](https://www.reddit.com/r/cloroapi/).
 
 ---
 

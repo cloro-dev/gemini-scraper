@@ -77,9 +77,10 @@ Alongside `text` and `markdown`:
 
 1. **`sources`** — the grounded sources panel, with position, label and description per source.
 2. **`citationPills`** — inline citation chips where the answer carries them.
-3. **`rawResponse`** — the unparsed upstream payload.
+3. **`places`** — the place cards Gemini renders for lodging and local answers, with name, link, rating, reviews, type, description and price.
+4. **`rawResponse`** — the unparsed upstream payload.
 
-Gemini returns a narrower structure than AI Mode or ChatGPT. There are no shopping or place arrays on this surface.
+Gemini returns a narrower structure than AI Mode or ChatGPT. There is no shopping array on this surface.
 
 Full field-level schemas are in the [endpoint reference](https://cloro.dev/docs/api-reference/endpoint/monitor-gemini).
 

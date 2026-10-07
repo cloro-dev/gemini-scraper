@@ -12,7 +12,7 @@ The [Gemini scraper](https://cloro.dev/gemini/?utm_source=github) by cloro retur
 2. POST a prompt to `https://api.cloro.dev/v1/monitor/gemini`.
 3. Read the parsed fields from the JSON response.
 
-Gemini runs on a separate authenticated domain from Google Search, so it is a different scraping problem from AI Mode or AI Overview even though all three are Google surfaces. The grounded sources panel is what cloro parses; the answer text alone is available from the model API and is not what this endpoint is for.
+Gemini runs on a separate domain from Google Search, so it is a different scraping problem from AI Mode or AI Overview even though all three are Google surfaces. The grounded sources panel is what cloro parses; the answer text alone is available from the model API and is not what this endpoint is for.
 
 ### Request sample (Python)
 
@@ -50,7 +50,7 @@ Node.js and async/webhook examples are in the [endpoint documentation](https://c
 | Parameter | Description | Default |
 | --- | --- | --- |
 | `prompt`\* | The query or question (1-10,000 characters) | – |
-| `country` | Country code for localized results (`US`, `GB`, `DE`) | `US` |
+| `country`\* | Country code for localized results (`US`, `GB`, `DE`) | – |
 | `state` | US state code for finer localization | – |
 | `include.markdown` | Return the answer as Markdown | `false` |
 | `include.html` | Return a URL to the full HTML (expires after 24h) | `false` |
@@ -78,9 +78,10 @@ Alongside `text` and `markdown`:
 1. **`sources`** — the grounded sources panel, with position, label and description per source.
 2. **`citationPills`** — inline citation chips where the answer carries them.
 3. **`places`** — the place cards Gemini renders for lodging and local answers, with name, link, rating, reviews, type, description and price.
-4. **`rawResponse`** — the unparsed upstream payload.
+4. **`shoppingCards`** — the product cards Gemini shows on shopping answers, with price, old price, store, store link, rating, reviews, images and Google Shopping product IDs.
+5. **`rawResponse`** — the unparsed upstream payload.
 
-Gemini returns a narrower structure than AI Mode or ChatGPT. There is no shopping array on this surface.
+Gemini returns a narrower structure than AI Mode or ChatGPT.
 
 Full field-level schemas are in the [endpoint reference](https://cloro.dev/docs/api-reference/endpoint/monitor-gemini).
 
@@ -99,7 +100,7 @@ The model API returns generated text. This returns what the Gemini product shows
 
 ### Is Gemini the same as Google AI Mode?
 
-No. AI Mode sits inside Google Search and is reached with `udm=50`; Gemini is a separate product on its own domain, with its own citation behaviour.
+No. AI Mode sits inside Google Search and is reached with `udm=50`; Gemini is a separate product on its own domain, with its own citation behavior.
 
 ### Is scraping Gemini allowed?
 
@@ -120,4 +121,4 @@ Yes, via `country` and `state`.
 
 ## Contact us
 
-Questions or support: [r/cloroapi](https://www.reddit.com/r/cloroapi/).
+Questions or support: [ask the docs AI assistant](https://cloro.dev/docs/?assistant).

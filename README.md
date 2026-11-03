@@ -4,9 +4,9 @@
 
 [![cloro](https://img.shields.io/badge/Powered%20by-cloro-blue?style=for-the-badge)](https://cloro.dev/)
 
-The [Gemini scraper](https://cloro.dev/gemini/?utm_source=github) by cloro returns Google Gemini answers as structured JSON: the answer text and markdown, and every grounded source with position, label and description.
+The [Gemini scraper](https://cloro.dev/gemini/?utm_source=github) by cloro is an API that returns Google Gemini's answers and the sources behind them as structured JSON: the answer text and markdown, and every grounded source with position, label and description. You run no browser and no proxies.
 
-## How do you scrape Gemini?
+## How do you scrape Gemini answers and their sources?
 
 1. Get an API key at [cloro.dev](https://cloro.dev/?utm_source=github&utm_medium=readme).
 2. POST a prompt to `https://api.cloro.dev/v1/monitor/gemini`.
@@ -75,11 +75,11 @@ Node.js and async/webhook examples are in the [endpoint documentation](https://c
 
 Alongside `text` and `markdown`:
 
-1. **`sources`** — the grounded sources panel, with position, label and description per source.
-2. **`citationPills`** — inline citation chips where the answer carries them.
-3. **`places`** — the place cards Gemini renders for lodging and local answers, with name, link, rating, reviews, type, description and price.
-4. **`shoppingCards`** — the product cards Gemini shows on shopping answers, with price, old price, store, store link, rating, reviews, images and Google Shopping product IDs.
-5. **`rawResponse`** — the unparsed upstream payload.
+1. **`sources`**: the grounded sources panel, with position, label and description per source.
+2. **`citationPills`**: inline citation chips where the answer carries them.
+3. **`places`**: the place cards Gemini renders for lodging and local answers, with name, link, rating, reviews, type, description and price.
+4. **`shoppingCards`**: the product cards Gemini shows on shopping answers, with price, old price, store, store link, rating, reviews, images and Google Shopping product IDs.
+5. **`rawResponse`**: the unparsed upstream payload.
 
 Gemini returns a narrower structure than AI Mode or ChatGPT.
 
@@ -88,9 +88,9 @@ Full field-level schemas are in the [endpoint reference](https://cloro.dev/docs/
 ## Use cases
 
 - **Brand monitoring on Google's assistant surface**, which is distinct from AI Mode and AI Overview.
-- **Grounding research** — which domains Gemini treats as authoritative on a question.
-- **Cross-engine comparison** — run the same prompt across Gemini, ChatGPT, Perplexity and Copilot and compare source overlap.
-- **Content validation** — check whether Gemini describes your product correctly, not just whether it names you.
+- **Grounding research**: which domains Gemini treats as authoritative on a question.
+- **Cross-engine comparison**: run the same prompt across Gemini, ChatGPT, Perplexity and Copilot and compare source overlap.
+- **Content validation**: check whether Gemini describes your product correctly, not just whether it names you.
 
 ## FAQ
 

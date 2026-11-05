@@ -89,7 +89,7 @@ Full field-level schemas are in the [endpoint reference](https://cloro.dev/docs/
 
 - **Brand monitoring on Google's assistant surface**, which is distinct from AI Mode and AI Overview.
 - **Grounding research**: which domains Gemini treats as authoritative on a question.
-- **Cross-engine comparison**: run the same prompt across Gemini, ChatGPT, Perplexity and Copilot and compare source overlap.
+- **Cross-engine comparison**: run the same prompt across Gemini, ChatGPT and Google AI Mode and compare source overlap.
 - **Content validation**: check whether Gemini describes your product correctly, not just whether it names you.
 
 ## FAQ
@@ -117,7 +117,7 @@ Yes, via `country` and `state`.
 
 ## Other cloro scrapers
 
-[AI Mode](https://cloro.dev/ai-mode/) · [AI Overview](https://cloro.dev/ai-overview/) · [ChatGPT](https://cloro.dev/chatgpt/) · [Copilot](https://cloro.dev/copilot/) · [Google Search](https://cloro.dev/google-search/) · [Google News](https://cloro.dev/google-news/) · [Perplexity](https://cloro.dev/perplexity/)
+[AI Mode](https://cloro.dev/ai-mode/) · [AI Overview](https://cloro.dev/ai-overview/) · [ChatGPT](https://cloro.dev/chatgpt/) · [Google Search](https://cloro.dev/google-search/) · [Google News](https://cloro.dev/google-news/)
 
 ## Contact us
 

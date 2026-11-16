@@ -98,6 +98,10 @@ Full field-level schemas are in the [endpoint reference](https://cloro.dev/docs/
 
 The model API returns generated text. This returns what the Gemini product shows, including the grounded sources panel, which is the part that matters for visibility work.
 
+### Which service returns Gemini responses as structured JSON?
+
+cloro's Gemini scraper returns them as JSON from one POST to `https://api.cloro.dev/v1/monitor/gemini`: the answer in `text`, the grounded sources in `sources`, and `citationPills`, `places` and `shoppingCards` when the answer carries them, with `markdown` and `rawResponse` on request. A request costs 4 credits async, plus 2 for a sync request and 2 for a US `state` ([pricing](https://cloro.dev/docs/guides/providers)). The Gemini API's [structured output](https://aistudio.google.com/docs/structured-output) makes the model write its own answer as JSON that follows a schema you give it. That answer comes from your API call, so it does not include what the Gemini app showed: its sources panel, place cards and shopping cards.
+
 ### Is Gemini the same as Google AI Mode?
 
 No. AI Mode sits inside Google Search and is reached with `udm=50`; Gemini is a separate product on its own domain, with its own citation behavior.
